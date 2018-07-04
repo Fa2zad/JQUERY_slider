@@ -153,7 +153,7 @@ main {
 
 .slider__container {
   margin: 0 auto;
-  height: 200px;
+  height: 180px;
   width: 100%;
   display: inline-block;
 }
@@ -252,9 +252,7 @@ main {
 }
 
 .slider-images {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: contents;
   padding: 15px 15px 15px 0;
   max-height: 180px;
   -webkit-transition-duration: 0.5s;
@@ -318,29 +316,5 @@ main {
 .slider-bullets ul li .slider-bullet-active {
   color: white;
   text-shadow: 0px 0px 4px grey;
-}
-
-body {
-  border: 1px solid rgba(0, 0, 255, 0.75);
-}
-
-body header, body main, body footer {
-  border: 1px dashed rgba(255, 0, 0, 0.75);
-}
-
-section, article, aside, div {
-  border: 1px dotted rgba(0, 0, 255, 0.75);
-}
-
-section > section, section > div, article > section, article > div, aside > section, aside > div, div > section, div > div {
-  border: 1px solid rgba(255, 0, 0, 0.75);
-}
-
-section > section > section, section > section > div, section > div > section, section > div > div, article > section > section, article > section > div, article > div > section, article > div > div, aside > section > section, aside > section > div, aside > div > section, aside > div > div, div > section > section, div > section > div, div > div > section, div > div > div {
-  border: 1px dashed rgba(0, 0, 255, 0.75);
-}
-
-h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, span, img {
-  border: 1px dotted rgba(0, 80, 0, 0.75);
 }
 /*# sourceMappingURL=style.css.map */

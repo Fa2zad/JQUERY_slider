@@ -6,7 +6,7 @@
 
 .slider__container{
     margin: 0 auto;
-    height: 200px;
+    height: 180px;
     width: 100%;
     display: inline-block;
 }
@@ -77,7 +77,7 @@
     }
 }
 .slider-images{
-    display: inline-flex;
+    display: contents;
     padding: 15px 15px 15px 0;;
     max-height: 180px;
     //margin-left: -160px;
