@@ -224,6 +224,8 @@ main {
   margin: 10px;
   overflow: hidden;
   display: inline-block;
+  position: relative;
+  height: 180px;
 }
 
 @media (max-width: 600px) {
@@ -252,19 +254,20 @@ main {
 }
 
 .slider-images {
-  display: contents;
-  padding: 15px 15px 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-height: 180px;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  -webkit-transform: translate(0);
+          transform: translate(0);
   position: absolute;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  left: 0;
-  right: 0;
 }
 
 .slider-images li, .slider-images img {
@@ -284,10 +287,10 @@ main {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition-duration: 1000ms;
-          transition-duration: 1000ms;
-  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .slider-images img:hover {
