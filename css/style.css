@@ -278,7 +278,6 @@ main {
 .slider-images img {
   background: white;
   max-width: 300px;
-  width: 150px;
   margin-right: 10px;
   /*user-drag: none;*/
   -webkit-user-drag: none;
