@@ -5,6 +5,7 @@ $(document).ready(function(){
     var slideFirst = 0;
     var slideLast = 0;
     var marginLeftValue = 0;
+    var moveValue = 160;
 
 
 
@@ -34,7 +35,7 @@ $(document).ready(function(){
         if ((direction == "right") && !flagWait) {
             checkWidth(direction);
 
-            sliderImages.css("transform", "translate(" + Number(parseInt(leftValue) - 160) +"px)");
+            sliderImages.css("transform", "translate(" + Number(parseInt(leftValue) - moveValue) +"px)");
             flagWait = true;
             
             setTimeout(() => {
@@ -63,23 +64,31 @@ $(document).ready(function(){
     function checkWidth(direction) {
         if (direction == "right") {
 
-                li = sliderImages.children();
-                var firstImage = li[slideFirst].outerHTML;
-                sliderImages.append(firstImage);
+            li = sliderImages.children();
+            var firstImage = li[slideFirst].outerHTML;
 
+            if ((Math.abs(leftValue) + railWidth) >= ulWidth - moveValue) {
+                sliderImages.append(firstImage);
                 slideFirst++;
+            }
+               
 
         } else if (direction == "left") {
                 
-                li = sliderImages.children();
+            li = sliderImages.children();
 
-                    var lastImage = li[slideLast].outerHTML;
-
-                    sliderImages.prepend(lastImage);
-                    marginLeftValue -= 160;
-                    sliderImages.css("transition-duration","0s");
-                    
-                    sliderImages.css("marginLeft"   , -160 );
+            var lastImage = li[slideLast].outerHTML;
+            if (leftValue >= 0) {
+                sliderImages.prepend(lastImage);
+                li[slideLast].remove();
+                marginLeftValue -= moveValue;
+                sliderImages.css("transition-duration","0s");
+                
+                sliderImages.css("marginLeft"   , -moveValue );
+            }else{
+                sliderImages.css("transform", "translate(" + Number(parseInt(leftValue) + moveValue) +"px)");
+            }
+            
 
                     
                     
