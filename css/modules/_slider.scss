@@ -121,8 +121,8 @@
         &:hover{
             // -webkit-filter: sepia(1) blur(2px);
             // filter: sepia(1) blur(2px);
-             -webkit-filter: sepia(1) contrast(200%);
-             filter: sepia(1) contrast(200%);
+             -webkit-filter: sepia(1) opacity(.8);
+             filter: sepia(1) opacity(.8);
             
 
         }

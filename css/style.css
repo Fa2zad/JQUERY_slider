@@ -293,8 +293,8 @@ main {
 }
 
 .slider-images img:hover {
-  -webkit-filter: sepia(1) contrast(200%);
-  filter: sepia(1) contrast(200%);
+  -webkit-filter: sepia(1) opacity(0.8);
+  filter: sepia(1) opacity(0.8);
 }
 
 .slider-bullets ul {
