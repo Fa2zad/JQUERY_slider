@@ -4,6 +4,7 @@ $(document).ready(function(){
     var flagWait = false;
     var slideFirst = 0;
     var slideLast = 0;
+    var marginLeftValue = 0;
 
 
 
@@ -28,8 +29,6 @@ $(document).ready(function(){
 ///          -to sliding image-           ///
 ///---------------------------------------///  
     function slide(direction) {
-        //alert(direction);
-        //alert(leftValue);
         leftValue = sliderImages.position().left;
 
         if ((direction == "right") && !flagWait) {
@@ -37,14 +36,19 @@ $(document).ready(function(){
 
             sliderImages.css("transform", "translate(" + Number(parseInt(leftValue) - 160) +"px)");
             flagWait = true;
-
+            
             setTimeout(() => {
                 flagWait = false;
             }, 500);
         } else if ((direction == "left") && !flagWait) {
             checkWidth(direction);
 
-            sliderImages.css("transform", "translate(" + Number(parseInt(leftValue) + 160) +"px)");
+            setTimeout(() => {
+                sliderImages.css("marginLeft"   , 0 );
+                sliderImages.css("transition-duration","0.5s");
+                
+            }, 10);
+
             flagWait = true;
 
             setTimeout(() => {
@@ -53,53 +57,32 @@ $(document).ready(function(){
         }
     }
 
-
-
+///-----=== checkWidth function ===-------///   
+///      -calling by slide function-      ///
+///---------------------------------------///  
     function checkWidth(direction) {
         if (direction == "right") {
-            //if ((Math.abs(leftValue) + railWidth) >= ulWidth - 160) {
 
                 li = sliderImages.children();
                 var firstImage = li[slideFirst].outerHTML;
                 sliderImages.append(firstImage);
 
-                    //$(li[0]).animate({width: '0'}, 500);
-                    //setTimeout(() => {
-                        //$(li[0]).remove();
-                    //}, 500);
-
                 slideFirst++;
-                // return 160;
 
-            // }else{
-            //     return 160;
-            //}
-            
         } else if (direction == "left") {
-            //if (leftValue  >= 0) {
                 
                 li = sliderImages.children();
 
-                    //$(li[length-1]).animate({width: '0'}, 0);
-                    alert(slideLast);
                     var lastImage = li[slideLast].outerHTML;
 
                     sliderImages.prepend(lastImage);
+                    marginLeftValue -= 160;
+                    sliderImages.css("transition-duration","0s");
+                    
+                    sliderImages.css("marginLeft"   , -160 );
 
-                    li = sliderImages.children();
-                    //$(li[0]).animate({width: '160'}, 500);
-                    //setTimeout(() => {
-                        //$(li[length]).remove();
-                    //}, 500);
-
-                    //slideLast--;
-                    //if (slideLast < 0 ) {
-                        //slideLast = length-1;
-                    //}
-            //     return 160;
-            // }else{
-            //     return 160;
-             //}
+                    
+                    
         }
         
 
