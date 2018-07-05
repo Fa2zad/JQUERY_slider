@@ -18,12 +18,44 @@ $(document).ready(function(){
     var railWidth = $("#sliderRail").width();
     var li = sliderImages.children();
     var length = li.children().length;
+
+    var oldX;
+    var newX;
+    var isDrag = false;
+
+
     slideLast = length-1;
     rightArrow.on("click",function () {
         slide("right");   
     });
     leftArrow.on("click",function () {
         slide("left");   
+    });
+
+
+
+    $(sliderImages).on( "mousedown", function( event ) {
+
+        oldX = event.pageX;
+        isDrag = true;
+    });
+
+    $(sliderImages).on("mouseup", function (event) {
+
+        sliderImages.css("cursor", "auto");
+        isDrag = false;
+    });
+    $(sliderImages).on("mousemove", function (event) {
+        sliderImages.css("cursor", "ew-resize");
+        
+        if (isDrag) {
+            isDrag = false;
+            newX = event.pageX;
+            sliderDrag(oldX, newX);
+            setTimeout(() => {
+                isDrag= true;
+            }, 200);
+        }
     });
 
 ///--------=== slide function ===---------///   
@@ -95,6 +127,23 @@ $(document).ready(function(){
         }
         
 
+    }
+
+
+///------=== sliderDrag function ===------///   
+///        -to slide by draging-          ///
+///---------------------------------------/// 
+    function sliderDrag(oldx, newx) {
+        
+
+        if (newx - oldx > 20) {
+            oldX = newX;
+            slide("left");
+        } else if(oldx - newx > 20) {
+            oldX = newX;
+            slide("right");
+        }
+        
     }
 
 
