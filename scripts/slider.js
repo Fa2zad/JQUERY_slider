@@ -45,6 +45,9 @@ $(document).ready(function(){
         sliderImages.css("cursor", "auto");
         isDrag = false;
     });
+    $(sliderImages).on("mouseout", function (event) {
+        isDrag = false;
+    });
     $(sliderImages).on("mousemove", function (event) {
         sliderImages.css("cursor", "ew-resize");
         
