@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body{
+            transition-duration: 500ms;
+        }
+
+        ul li{
+            position: absolute;
+            display: block;
+            /* left: 0; */
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="contianer">
+
+        <ul class="list">
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li>list item 3</li>
+            <li>list item 4</li>
+            <li>list item 5</li>
+        </ul>
+
+    </div>
+
+    <button>click</button>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            var listItems = $(".list");
+            var itemsLenght = listItems.children().length;
+            var lastItem = $(".list li:last");
+            var firstItem = $(".list li:first");
+            var newItem = lastItem;
+            
+            for (let i = 0; i  < itemsLenght; i++) {
+                var element = listItems.children();
+                
+
+
+                alert(element[i].outerHTML);
+                
+            }
+
+            $("button").on("click", function () {
+                
+
+                
+                listItems.prepend(newItem);
+
+
+            });
+
+            
+        })
+    </script>
+</body>
+</html>
